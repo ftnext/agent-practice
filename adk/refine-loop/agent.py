@@ -6,7 +6,7 @@ from google.adk.events import Event
 from google.genai import types
 
 
-class ParrotAgent(BaseAgent):
+class HumanAsAgent(BaseAgent):
     output_key: str
 
     async def _run_async_impl(
@@ -62,9 +62,9 @@ loop_agent = LoopAgent(
     description="Loop agent that runs a sub-agent in a loop",
     max_iterations=None,
     sub_agents=[
-        ParrotAgent(
-            name="parrot_agent",
-            description="Parrot agent that echoes user input",
+        HumanAsAgent(
+            name="human_as_agent",
+            description="Human responds as an agent",
             output_key="current_sentence",
         ),
         critique_agent,

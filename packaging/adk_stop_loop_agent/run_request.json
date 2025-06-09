@@ -1,0 +1,14 @@
+{
+  "appName": "adk_stop_loop_agent",
+  "userId": "nikkie",
+  "sessionId": "<From Create Session>",
+  "newMessage": {
+    "parts": [
+      {
+        "text": "こんにちは"
+      }
+    ],
+    "role": "user"
+  },
+  "streaming": false
+}

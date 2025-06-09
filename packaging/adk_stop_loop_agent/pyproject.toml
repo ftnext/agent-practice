@@ -1,0 +1,4 @@
+[project]
+name = "adk_stop_loop_agent"
+version = "0.0.1"
+dependencies = ["google-adk"]

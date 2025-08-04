@@ -4,10 +4,13 @@
 #
 #    pip-compile
 #
+absolufy-imports==0.3.1
+    # via google-adk
 annotated-types==0.7.0
     # via pydantic
 anyio==4.9.0
     # via
+    #   google-adk
     #   google-genai
     #   httpx
     #   mcp
@@ -38,7 +41,7 @@ docstring-parser==0.16
     # via google-cloud-aiplatform
 fastapi==0.115.12
     # via google-adk
-google-adk==1.2.1
+google-adk==1.9.0
     # via -r requirements.in
 google-api-core[grpc]==2.25.0
     # via
@@ -106,7 +109,7 @@ google-crc32c==1.7.1
     # via
     #   google-cloud-storage
     #   google-resumable-media
-google-genai==1.19.0
+google-genai==1.28.0
     # via
     #   google-adk
     #   google-cloud-aiplatform
@@ -236,7 +239,9 @@ pydantic-settings==2.9.1
 pyparsing==3.2.3
     # via httplib2
 python-dateutil==2.9.0.post0
-    # via google-cloud-bigquery
+    # via
+    #   google-adk
+    #   google-cloud-bigquery
 python-dotenv==1.1.0
     # via
     #   google-adk
@@ -245,8 +250,9 @@ python-multipart==0.0.20
     # via mcp
 pyyaml==6.0.2
     # via google-adk
-requests==2.32.3
+requests==2.32.4
     # via
+    #   google-adk
     #   google-api-core
     #   google-cloud-bigquery
     #   google-cloud-storage
@@ -267,7 +273,12 @@ sse-starlette==2.3.6
 starlette==0.46.2
     # via
     #   fastapi
+    #   google-adk
     #   mcp
+tenacity==8.5.0
+    # via
+    #   google-adk
+    #   google-genai
 typing-extensions==4.14.0
     # via
     #   anyio
@@ -297,7 +308,11 @@ uvicorn==0.34.3
     # via
     #   google-adk
     #   mcp
+watchdog==6.0.0
+    # via google-adk
 websockets==15.0.1
-    # via google-genai
+    # via
+    #   google-adk
+    #   google-genai
 zipp==3.23.0
     # via importlib-metadata

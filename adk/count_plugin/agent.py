@@ -2,6 +2,8 @@ from google.adk.agents import LlmAgent
 from google.adk.apps import App
 from google.adk.tools import ToolContext
 
+from .plugin import CountInvocationPlugin
+
 
 async def hello_world(tool_context: ToolContext, query: str) -> None:
     print(f"Hello world: query is [{query}]")
@@ -15,4 +17,4 @@ root_agent = LlmAgent(
     tools=[hello_world],
 )
 
-app = App(name="count_plugin", root_agent=root_agent)
+app = App(name="count_plugin", root_agent=root_agent, plugins=[CountInvocationPlugin()])

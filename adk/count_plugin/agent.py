@@ -1,4 +1,5 @@
 from google.adk.agents import LlmAgent
+from google.adk.apps import App
 from google.adk.tools import ToolContext
 
 
@@ -13,3 +14,5 @@ root_agent = LlmAgent(
     instruction="Use hello_world tool to print hello world and user query.",
     tools=[hello_world],
 )
+
+app = App(name="count_plugin", root_agent=root_agent)

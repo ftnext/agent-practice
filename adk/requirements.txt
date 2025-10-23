@@ -45,8 +45,10 @@ cryptography==46.0.3
     # via authlib
 docstring-parser==0.17.0
     # via google-cloud-aiplatform
-fastapi==0.119.0
-    # via google-adk
+fastapi==0.118.3
+    # via
+    #   -r requirements.in
+    #   google-adk
 google-adk==1.16.0
     # via -r requirements.in
 google-api-core[grpc]==2.26.0

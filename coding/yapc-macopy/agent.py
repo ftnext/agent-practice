@@ -45,20 +45,32 @@ if __name__ == "__main__":
         },
         {
             "role": "user",
-            "content": (
-                f"Your task: {args.task}. 3つのbacktickで囲まれたコードブロック内にPythonのコードを使って返信してください。\n"
-                "コードブロック内をexecで実行した際の標準出力があなたに渡されます。\n"
-                "あなたはコードを繰り返し実行して、その結果を読み取り、さらに必要があれば結果を元にコードを生成します。タスクが完了するまで繰り返します。\n"
-                "もしタスクが完了した時、コードブロックを実行した際の**標準出力の最初の行**に'__COMPLETE__'を出力してください。ユーザーにはその後の行が最終結果として表示されます。"
-            ),
+            "content": f"""\
+Your task: {args.task}. 3つのbacktickで囲まれたコードブロック内にPythonのコードを使って返信してください。
+コードブロック内をexecで実行した際の標準出力があなたに渡されます。
+あなたはコードを繰り返し実行して、その結果を読み取り、さらに必要があれば結果を元にコードを生成します。タスクが完了するまで繰り返します。
+もしタスクが完了した時、コードブロックを実行した際の**標準出力の最初の行**に'__COMPLETE__'を出力してください。ユーザーにはその後の行が最終結果として表示されます。
+
+Pythonコードブロックの前にはTHOUGHTセクションを追加し、推論プロセスを説明してください。
+以下の<format_example>セクションに示すようなフォーマットにしてください。
+
+<format_example>
+THOUGHT: Your reasoning and analysis here
+
+```python
+# Your Python code here
+```
+
+この形式の応答に従わない場合は、あなたの応答は拒否されます。
+""",
         },
     ]
     while True:
         choice = chat_completion(messages)
-        messages.append({"role": "assistant", "content": choice.message.content})
-        if match := re.search(
-            r"```python\s*(.*?)\s*```", choice.message.content, re.DOTALL
-        ):
+        completion = choice.message.content
+        print(completion)  # See THOUGHT
+        messages.append({"role": "assistant", "content": completion})
+        if match := re.search(r"```python\s*(.*?)\s*```", completion, re.DOTALL):
             code = match.group(1)
             rich_print(f"[green]実行:\n{code}[/green]")
             f = io.StringIO()
@@ -82,7 +94,5 @@ if __name__ == "__main__":
                 rich_print(f"[blue]{result}[/blue]")
                 messages.append({"role": "user", "content": result})
         else:
-            rich_print(
-                f"[red]コードブロックが見つかりませんでした: {choice.message.content}[/red]"
-            )
+            rich_print(f"[red]コードブロックが見つかりませんでした: {completion}[/red]")
             break

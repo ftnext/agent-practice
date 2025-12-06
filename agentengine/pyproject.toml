@@ -1,0 +1,8 @@
+[project]
+name = "search-agent"
+version = "0.1.0"
+description = "simple search agent from 'Build an AI Agent with Gemini 3' https://youtu.be/9EGtawwvlNs"
+requires-python = ">=3.13"
+dependencies = [
+    "google-adk>=1.20.0",
+]

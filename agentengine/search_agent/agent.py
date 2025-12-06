@@ -2,7 +2,7 @@ from google.adk.agents.llm_agent import Agent
 from google.adk.tools import google_search
 
 search_agent = Agent(
-    model='gemini-3-pro-preview',
+    model='gemini-2.5-pro',
     name='search_agent',
     description='A helpful assistant that can search Google.',
     instruction="""\

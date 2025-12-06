@@ -1,4 +1,5 @@
 from google.adk.agents.llm_agent import Agent
+from google.adk.apps import App
 from google.adk.tools import google_search
 
 search_agent = Agent(
@@ -15,3 +16,4 @@ Provide the answer clearly based on the search results and always cite your sour
 )
 
 root_agent = search_agent
+app = App(name="search_agent", root_agent=root_agent)

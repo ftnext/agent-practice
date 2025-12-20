@@ -1,0 +1,19 @@
+{
+  "criteria": {
+    "rubric_based_final_response_quality_v1": {
+      "threshold": 0.6,
+      "judge_model_options": {
+        "judge_model": "gemini-3-pro-preview",
+        "num_samples": 1
+      },
+      "rubrics": [
+        {
+          "rubric_id": "freshness",
+          "rubric_content": {
+            "text_property": "2025年後半のAIニュースを含めた回答をしているか"
+          }
+        }
+      ]
+    }
+  }
+}

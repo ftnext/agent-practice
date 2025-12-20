@@ -1,0 +1,23 @@
+{
+  "eval_set_id": "search_agent_should_use_search_tool_eval_set",
+  "name": "",
+  "description": "This is an eval set that is used for unit testing `Google search` behavior of the Agent",
+  "eval_cases": [
+    {
+      "eval_id": "search_agent_should_use_search_tool",
+      "conversation": [
+        {
+          "invocation_id": "b7982664-0ab6-47cc-ab13-326656afdf75",
+          "user_content": {
+            "parts": [
+              {
+                "text": "最新のAIニュースにはどんなものがある？"
+              }
+            ],
+            "role": "user"
+          }
+        }
+      ]
+    }
+  ]
+}

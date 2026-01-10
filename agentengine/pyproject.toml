@@ -16,3 +16,6 @@ dev = [
 
 [tool.pytest]
 pythonpath = ["."]
+filterwarnings = [
+    'ignore:\[EXPERIMENTAL\]:UserWarning'
+]

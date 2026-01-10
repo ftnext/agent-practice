@@ -4,6 +4,7 @@ from google.adk.evaluation.eval_config import get_eval_metrics_from_config
 from google.adk.evaluation.local_eval_set_results_manager import (
     LocalEvalSetResultsManager,
 )
+from google.adk.evaluation.local_eval_sets_manager import load_eval_set_from_file
 from google.adk.evaluation.simulation.user_simulator_provider import (
     UserSimulatorProvider,
 )
@@ -13,9 +14,7 @@ from google.adk.evaluation.simulation.user_simulator_provider import (
 async def test_should_use_search_tool(tmp_path):
     test_file = "tests/integration/fixtures/search_agent/test_should_use_search_tool/latest_ai_news.test.json"
     eval_config = AgentEvaluator.find_config_for_test_file(test_file)
-    eval_set = AgentEvaluator._load_eval_set_from_file(
-        test_file, eval_config, initial_session={}
-    )
+    eval_set = load_eval_set_from_file(test_file, eval_set_id="search_agent")
     eval_metrics = get_eval_metrics_from_config(eval_config)
     user_simulator_provider = UserSimulatorProvider(
         user_simulator_config=eval_config.user_simulator_config

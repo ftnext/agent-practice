@@ -9,10 +9,21 @@ from ag_ui_adk import ADKAgent, add_adk_fastapi_endpoint
 from fastapi import FastAPI
 from google.adk.agents import LlmAgent
 
+
+def set_theme_color(theme_color: str) -> None:
+    """Request a UI theme color change.
+
+    Args:
+        theme_color: CSS color (hex, name, or rgb) that the UI should apply
+    """
+    return None
+
+
 root_agent = LlmAgent(
     name="assistant",
     model="gemini-2.5-flash",
     instruction="Be helpful and fun!",
+    tools=[set_theme_color],
 )
 
 adk_agent = ADKAgent(

@@ -12,3 +12,14 @@ def practice_tool_trajectory_metric(
     return trajectory_evaluator.evaluate_invocations(
         actual_invocations, expected_invocations, conversation_scenario
     )
+
+
+def any_support_tool_trajectory_metric(
+    actual_invocations: list[Invocation],
+    expected_invocations: list[Invocation] | None,
+    conversation_scenario: ConversationScenario | None = None,
+) -> EvaluationResult:
+    trajectory_evaluator = TrajectoryEvaluator(threshold=1.0)
+    return trajectory_evaluator.evaluate_invocations(
+        actual_invocations, expected_invocations, conversation_scenario
+    )

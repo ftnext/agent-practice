@@ -1,8 +1,8 @@
-from custom_metrics import any_support_tool_trajectory_metric
 from google.adk.evaluation.eval_case import IntermediateData, Invocation
 from google.adk.evaluation.evaluator import EvalStatus
-from google.adk.evaluation.trajectory_evaluator import TrajectoryEvaluator
 from google.genai import types as genai_types
+
+from custom_metrics import any_support_tool_trajectory_metric
 
 _USER_CONTENT = genai_types.Content(parts=[genai_types.Part(text="User input here.")])
 
@@ -117,3 +117,25 @@ def test_evaluate_invocations_multiple_invocations():
     assert result.per_invocation_results[0].eval_status == EvalStatus.PASSED
     assert result.per_invocation_results[1].score == 0.0
     assert result.per_invocation_results[1].eval_status == EvalStatus.FAILED
+
+
+def test_evaluate_invocations_different_tool_call_args_any_support():
+    actual_tool_call = genai_types.FunctionCall(name="test_func", args={"arg1": "val1"})
+    expected_tool_call = genai_types.FunctionCall(
+        name="test_func", args={"arg1": "ANY"}
+    )
+    actual_invocation = Invocation(
+        user_content=_USER_CONTENT,
+        intermediate_data=IntermediateData(tool_uses=[actual_tool_call]),
+    )
+    expected_invocation = Invocation(
+        user_content=_USER_CONTENT,
+        intermediate_data=IntermediateData(tool_uses=[expected_tool_call]),
+    )
+    result = any_support_tool_trajectory_metric(
+        [actual_invocation], [expected_invocation]
+    )
+    assert result.overall_score == 1.0
+    assert result.overall_eval_status == EvalStatus.PASSED
+    assert result.per_invocation_results[0].score == 1.0
+    assert result.per_invocation_results[0].eval_status == EvalStatus.PASSED

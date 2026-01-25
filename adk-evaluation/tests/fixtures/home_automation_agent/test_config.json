@@ -1,0 +1,12 @@
+{
+    "criteria": {
+        "practice_tool_trajectory_metric": 1.0
+    },
+    "custom_metrics": {
+        "practice_tool_trajectory_metric": {
+            "code_config": {
+                "name": "custom_metrics.practice_tool_trajectory_metric"
+            }
+        }
+    }
+}

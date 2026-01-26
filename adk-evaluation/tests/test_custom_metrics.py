@@ -2,7 +2,7 @@ from google.adk.evaluation.eval_case import IntermediateData, Invocation
 from google.adk.evaluation.evaluator import EvalStatus
 from google.genai import types as genai_types
 
-from custom_metrics import any_support_tool_trajectory_metric
+from custom_metrics import args_any_support_tool_trajectory_metric
 
 _USER_CONTENT = genai_types.Content(parts=[genai_types.Part(text="User input here.")])
 
@@ -13,7 +13,7 @@ def test_evaluate_invocations_equal_tool_calls():
     invocation = Invocation(
         user_content=_USER_CONTENT, intermediate_data=intermediate_data
     )
-    result = any_support_tool_trajectory_metric([invocation], [invocation])
+    result = args_any_support_tool_trajectory_metric([invocation], [invocation])
     assert result.overall_score == 1.0
     assert result.overall_eval_status == EvalStatus.PASSED
     assert len(result.per_invocation_results) == 1
@@ -32,7 +32,7 @@ def test_evaluate_invocations_different_tool_call_names():
         user_content=_USER_CONTENT,
         intermediate_data=IntermediateData(tool_uses=[tool_call2]),
     )
-    result = any_support_tool_trajectory_metric([invocation1], [invocation2])
+    result = args_any_support_tool_trajectory_metric([invocation1], [invocation2])
     assert result.overall_score == 0.0
     assert result.overall_eval_status == EvalStatus.FAILED
     assert result.per_invocation_results[0].score == 0.0
@@ -50,7 +50,7 @@ def test_evaluate_invocations_different_tool_call_args():
         user_content=_USER_CONTENT,
         intermediate_data=IntermediateData(tool_uses=[tool_call2]),
     )
-    result = any_support_tool_trajectory_metric([invocation1], [invocation2])
+    result = args_any_support_tool_trajectory_metric([invocation1], [invocation2])
     assert result.overall_score == 0.0
     assert result.overall_eval_status == EvalStatus.FAILED
     assert result.per_invocation_results[0].score == 0.0
@@ -68,7 +68,7 @@ def test_evaluate_invocations_different_number_of_tool_calls():
         user_content=_USER_CONTENT,
         intermediate_data=IntermediateData(tool_uses=[tool_call1, tool_call2]),
     )
-    result = any_support_tool_trajectory_metric([invocation1], [invocation2])
+    result = args_any_support_tool_trajectory_metric([invocation1], [invocation2])
     assert result.overall_score == 0.0
     assert result.overall_eval_status == EvalStatus.FAILED
     assert result.per_invocation_results[0].score == 0.0
@@ -79,7 +79,7 @@ def test_evaluate_invocations_no_tool_calls():
     invocation = Invocation(
         user_content=_USER_CONTENT, intermediate_data=IntermediateData()
     )
-    result = any_support_tool_trajectory_metric([invocation], [invocation])
+    result = args_any_support_tool_trajectory_metric([invocation], [invocation])
     assert result.overall_score == 1.0
     assert result.overall_eval_status == EvalStatus.PASSED
     assert result.per_invocation_results[0].score == 1.0
@@ -106,7 +106,7 @@ def test_evaluate_invocations_multiple_invocations():
         intermediate_data=IntermediateData(tool_uses=[tool_call2]),
     )
 
-    result = any_support_tool_trajectory_metric(
+    result = args_any_support_tool_trajectory_metric(
         [inv1_actual, inv2_actual], [inv1_expected, inv2_expected]
     )
 
@@ -132,7 +132,7 @@ def test_evaluate_invocations_different_tool_call_args_any_support():
         user_content=_USER_CONTENT,
         intermediate_data=IntermediateData(tool_uses=[expected_tool_call]),
     )
-    result = any_support_tool_trajectory_metric(
+    result = args_any_support_tool_trajectory_metric(
         [actual_invocation], [expected_invocation]
     )
     assert result.overall_score == 1.0

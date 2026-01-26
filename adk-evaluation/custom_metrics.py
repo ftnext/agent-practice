@@ -21,7 +21,7 @@ def practice_tool_trajectory_metric(
     )
 
 
-def any_support_tool_trajectory_metric(
+def args_any_support_tool_trajectory_metric(
     actual_invocations: list[Invocation],
     expected_invocations: list[Invocation] | None,
     conversation_scenario: ConversationScenario | None = None,

@@ -3,4 +3,5 @@ uv run adk deploy agent_engine \
   --region asia-northeast1 \
   --display_name "Search Agent" \
   --trace_to_cloud \
+  --otel_to_cloud \
   ./search_agent

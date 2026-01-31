@@ -1,9 +1,6 @@
-gcloud storage buckets create gs://nikkie-agentengine-staging --project adk-practice-480404 --location=asia-northeast1
-
 uv run adk deploy agent_engine \
   --project adk-practice-480404 \
   --region asia-northeast1 \
-  --staging_bucket gs://nikkie-agentengine-staging \
   --display_name "Search Agent" \
   --trace_to_cloud \
   ./search_agent

@@ -1,9 +1,6 @@
 from google.adk.evaluation.eval_case import ConversationScenario, Invocation
-from google.adk.evaluation.evaluator import (
-    EvalStatus,
-    EvaluationResult,
-    PerInvocationResult,
-)
+from google.adk.evaluation.eval_metrics import EvalMetric, EvalStatus
+from google.adk.evaluation.evaluator import EvaluationResult, PerInvocationResult
 from google.adk.evaluation.trajectory_evaluator import (
     TrajectoryEvaluator,
     get_all_tool_calls,
@@ -11,6 +8,7 @@ from google.adk.evaluation.trajectory_evaluator import (
 
 
 def practice_tool_trajectory_metric(
+    eval_metric: EvalMetric,
     actual_invocations: list[Invocation],
     expected_invocations: list[Invocation] | None,
     conversation_scenario: ConversationScenario | None = None,
@@ -22,6 +20,7 @@ def practice_tool_trajectory_metric(
 
 
 def args_any_support_tool_trajectory_metric(
+    eval_metric: EvalMetric,
     actual_invocations: list[Invocation],
     expected_invocations: list[Invocation] | None,
     conversation_scenario: ConversationScenario | None = None,

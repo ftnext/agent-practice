@@ -2,6 +2,7 @@ from a2ui.basic_catalog.provider import BasicCatalog
 from a2ui.schema.manager import A2uiSchemaManager
 from google.adk.agents import Agent
 
+from .a2ui_utils import a2ui_callback
 from .resources import get_resources
 
 schema_manager = A2uiSchemaManager(
@@ -33,4 +34,5 @@ root_agent = Agent(
     description="A cloud infrastructure assistant that renders rich A2UI interfaces.",
     instruction=instruction,
     tools=[get_resources],
+    after_model_callback=a2ui_callback,
 )

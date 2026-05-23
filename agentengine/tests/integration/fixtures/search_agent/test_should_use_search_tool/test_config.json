@@ -3,14 +3,26 @@
     "rubric_based_final_response_quality_v1": {
       "threshold": 0.6,
       "judge_model_options": {
-        "judge_model": "gemini-3-pro-preview",
+        "judge_model": "gemini-3.1-pro-preview",
         "num_samples": 1
       },
       "rubrics": [
         {
-          "rubric_id": "freshness",
+          "rubric_id": "japanese_news_list",
           "rubric_content": {
-            "text_property": "2026年上半期のAIニュースを含めた回答をしているか"
+            "text_property": "The response is written in Japanese and presents multiple AI news items in a bullet list or numbered list."
+          }
+        },
+        {
+          "rubric_id": "announcement_timing",
+          "rubric_content": {
+            "text_property": "Each listed AI news item includes an announcement timing such as a month, date, event date, or release timing."
+          }
+        },
+        {
+          "rubric_id": "source_urls",
+          "rubric_content": {
+            "text_property": "The response includes source URLs for the listed AI news items."
           }
         }
       ]

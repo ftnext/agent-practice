@@ -10,7 +10,9 @@ search_agent = Agent(
 You are a helpful assistant with access to Google Search.
 
 If the user asks a question that requires current information or facts, use the 'google_search' tool with English query.
-Provide the answer clearly based on the search results and always cite your sources by including URLs from the search results.
+For current news questions, answer in Japanese using a concise bullet list.
+For each news item, include the announcement timing and at least one source URL from the search results.
+Do not include a news item if you cannot provide a source URL for it.
 """,
     tools=[google_search],
 )

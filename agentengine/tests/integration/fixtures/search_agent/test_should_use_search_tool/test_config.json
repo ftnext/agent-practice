@@ -8,21 +8,27 @@
       },
       "rubrics": [
         {
-          "rubric_id": "japanese_news_list",
+          "rubric_id": "japanese_answer",
           "rubric_content": {
-            "text_property": "The response is written in Japanese and presents multiple AI news items in a bullet list or numbered list."
+            "text_property": "The response is written in Japanese."
           }
         },
         {
-          "rubric_id": "announcement_timing",
+          "rubric_id": "not_empty_or_refusal",
           "rubric_content": {
-            "text_property": "Each listed AI news item includes an announcement timing such as a month, date, event date, or release timing."
+            "text_property": "The response is not empty and is not a refusal, error message, or request for clarification."
           }
         },
         {
-          "rubric_id": "source_urls",
+          "rubric_id": "visible_date_expression",
           "rubric_content": {
-            "text_property": "The response includes source URLs for the listed AI news items."
+            "text_property": "The visible response text includes at least one date-like expression such as a four-digit year, a month, a date, an event date, or release timing. This property evaluates only visible text format, not factual correctness."
+          }
+        },
+        {
+          "rubric_id": "visible_ai_terms",
+          "rubric_content": {
+            "text_property": "The visible response text includes AI-related terms or proper nouns such as AI, Gemini, OpenAI, Anthropic, Google, Microsoft, NVIDIA, model, agent, or search. This property evaluates only visible text, not factual correctness."
           }
         }
       ]

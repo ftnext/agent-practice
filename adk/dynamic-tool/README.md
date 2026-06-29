@@ -1,6 +1,6 @@
 # dynamic-tool
 
-Minimal ADK sample for trying request-scoped tool behavior from `/run`
+Minimal ADK sample for trying request-scoped tool availability from `/run`
 `stateDelta`.
 
 Run:
@@ -9,8 +9,9 @@ Run:
 uv run adk api_server --auto_create_session
 ```
 
-Then call `/run` with `stateDelta`. The transform mode is not exposed as a
-chat tool and should not be inferred from the user message.
+Then call `/run` with `stateDelta`. A custom `BaseToolset` reads
+`stateDelta.temp:tool_mode` from `ReadonlyContext.state` and exposes exactly
+one transform tool for that run.
 
 ```bash
 curl -sS http://127.0.0.1:8000/run \
@@ -31,6 +32,9 @@ curl -sS http://127.0.0.1:8000/run \
 
 Supported `temp:tool_mode` values are `upper`, `lower`, `reverse`, and `title`.
 
-Without `stateDelta.temp:tool_mode`, the tool returns an error instead of
-choosing a default mode. That keeps this sample honest: the extra parameter is
-provided only by the API request.
+For example, `reverse` exposes only the `reverse_text` tool, while `upper`
+exposes only the `upper_text` tool. The user message does not choose the mode.
+
+Without `stateDelta.temp:tool_mode`, the toolset exposes `missing_tool_mode`,
+which returns an error instead of choosing a default. That keeps this sample
+honest: the extra parameter is provided only by the API request.

@@ -1,0 +1,7 @@
+[project]
+name = "dynamic-tool"
+version = "0.1.0"
+description = "Small ADK sample showing per-run tool behavior controlled by stateDelta."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["google-adk"]

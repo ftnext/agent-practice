@@ -1,0 +1,71 @@
+{
+  "appName": "sequence",
+  "events": [
+    {
+      "author": "user",
+      "content": {
+        "parts": [
+          {
+            "text": "\u3053\u3093\u306b\u3061\u306f"
+          }
+        ],
+        "role": "user"
+      },
+      "id": "e-1",
+      "invocationId": "i-1",
+      "nodeInfo": {
+        "path": ""
+      }
+    },
+    {
+      "author": "generate_fruit_agent",
+      "content": {
+        "parts": [
+          {
+            "text": "Peach"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "id": "e-2",
+      "invocationId": "i-1",
+      "nodeInfo": {
+        "messageAsOutput": true,
+        "outputFor": [
+          "root_agent@1/generate_fruit_agent@1"
+        ],
+        "path": "root_agent@1/generate_fruit_agent@1"
+      }
+    },
+    {
+      "author": "generate_benefit_agent",
+      "content": {
+        "parts": [
+          {
+            "text": "One major health benefit of peaches is that they **promote healthy digestion**. \n\nA single medium-sized peach provides about 2 grams of dietary fiber, which consists of both soluble and insoluble fiber:\n* **Insoluble fiber** adds bulk to your stool and helps move food smoothly through your gut, reducing the likelihood of constipation.\n* **Soluble fiber** provides food for the beneficial bacteria in your intestines, which produces short-chain fatty acids that feed the cells of your gut and reduce inflammation. \n\nAdditionally, peaches contain natural compounds that can help soothe an upset stomach and support overall gut health."
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "id": "e-3",
+      "invocationId": "i-1",
+      "nodeInfo": {
+        "messageAsOutput": true,
+        "outputFor": [
+          "root_agent@1/generate_benefit_agent@1",
+          "root_agent@1"
+        ],
+        "path": "root_agent@1/generate_benefit_agent@1"
+      }
+    }
+  ],
+  "id": "0e5ab646-61d6-49cd-b058-24fde0afebae",
+  "state": {
+    "__session_metadata__": {
+      "displayName": "go"
+    }
+  },
+  "userId": "user"
+}

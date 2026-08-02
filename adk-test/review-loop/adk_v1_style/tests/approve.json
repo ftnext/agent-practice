@@ -1,0 +1,78 @@
+{
+  "events": [
+    {
+      "author": "user",
+      "content": {
+        "parts": [
+          {
+            "text": "Announce that the project has started."
+          }
+        ],
+        "role": "user"
+      }
+    },
+    {
+      "actions": {
+        "stateDelta": {
+          "current_draft": "それでは始めさせていただきます"
+        }
+      },
+      "author": "write_draft",
+      "content": {
+        "parts": [
+          {
+            "text": "それでは始めさせていただきます"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "nodeInfo": {
+        "path": ""
+      }
+    },
+    {
+      "author": "review_draft",
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "args": {},
+              "id": "fc-1",
+              "name": "exit_loop"
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "nodeInfo": {
+        "path": ""
+      }
+    },
+    {
+      "actions": {
+        "escalate": true,
+        "skipSummarization": true
+      },
+      "author": "review_draft",
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "fc-1",
+              "name": "exit_loop",
+              "response": {
+                "result": null
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "nodeInfo": {
+        "path": ""
+      }
+    }
+  ]
+}

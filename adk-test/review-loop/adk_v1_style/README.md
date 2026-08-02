@@ -18,9 +18,9 @@ the successful exit path are tested without calling a model API.
 
 ```mermaid
 graph TD
-    LoopAgent[root_agent] -->|repeats| Writer[write_draft]
-    LoopAgent -->|repeats| Reviewer[review_draft]
-    Reviewer -->|feedback| Writer
+    LoopAgent[root_agent] -->|starts iteration| Writer[write_draft]
+    Writer -->|draft| Reviewer[review_draft]
+    Reviewer -->|feedback; next iteration| Writer
     Reviewer -->|calls exit_loop| End[Loop ends]
 ```
 

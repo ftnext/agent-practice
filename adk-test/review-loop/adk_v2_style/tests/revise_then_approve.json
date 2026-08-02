@@ -1,0 +1,146 @@
+{
+  "events": [
+    {
+      "author": "user",
+      "content": {
+        "parts": [
+          {
+            "text": "Announce that the project has started."
+          }
+        ],
+        "role": "user"
+      }
+    },
+    {
+      "actions": {
+        "stateDelta": {
+          "announcement_request": "Announce that the project has started."
+        }
+      },
+      "author": "root_agent",
+      "nodeInfo": {
+        "path": "root_agent@1/process_input@1"
+      }
+    },
+    {
+      "actions": {
+        "stateDelta": {
+          "current_draft": "いえーい！ビビッといっくよーー！！"
+        }
+      },
+      "author": "write_draft",
+      "content": {
+        "parts": [
+          {
+            "text": "いえーい！ビビッといっくよーー！！"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "nodeInfo": {
+        "messageAsOutput": true,
+        "outputFor": [
+          "root_agent@1/write_draft@1"
+        ],
+        "path": "root_agent@1/write_draft@1"
+      }
+    },
+    {
+      "actions": {
+        "stateDelta": {
+          "review": {
+            "feedback": "Use a professional tone and avoid slang or excessive punctuation.",
+            "grade": "needs_revision"
+          }
+        }
+      },
+      "author": "review_draft",
+      "content": {
+        "parts": [
+          {
+            "text": "{\"grade\": \"needs_revision\", \"feedback\": \"Use a professional tone and avoid slang or excessive punctuation.\"}"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "nodeInfo": {
+        "messageAsOutput": true,
+        "outputFor": [
+          "root_agent@1/review_draft@1"
+        ],
+        "path": "root_agent@1/review_draft@1"
+      }
+    },
+    {
+      "actions": {
+        "route": "needs_revision"
+      },
+      "author": "root_agent",
+      "nodeInfo": {
+        "path": "root_agent@1/route_review@1"
+      }
+    },
+    {
+      "actions": {
+        "stateDelta": {
+          "current_draft": "それでは始めさせていただきます"
+        }
+      },
+      "author": "write_draft",
+      "content": {
+        "parts": [
+          {
+            "text": "それでは始めさせていただきます"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "nodeInfo": {
+        "messageAsOutput": true,
+        "outputFor": [
+          "root_agent@1/write_draft@2"
+        ],
+        "path": "root_agent@1/write_draft@2"
+      }
+    },
+    {
+      "actions": {
+        "stateDelta": {
+          "review": {
+            "feedback": "The announcement is concise and professional.",
+            "grade": "approved"
+          }
+        }
+      },
+      "author": "review_draft",
+      "content": {
+        "parts": [
+          {
+            "text": "{\"grade\": \"approved\", \"feedback\": \"The announcement is concise and professional.\"}"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "nodeInfo": {
+        "messageAsOutput": true,
+        "outputFor": [
+          "root_agent@1/review_draft@2"
+        ],
+        "path": "root_agent@1/review_draft@2"
+      }
+    },
+    {
+      "actions": {
+        "route": "approved"
+      },
+      "author": "root_agent",
+      "nodeInfo": {
+        "path": "root_agent@1/route_review@2"
+      }
+    }
+  ]
+}

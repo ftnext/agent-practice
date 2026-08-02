@@ -1,0 +1,86 @@
+{
+  "events": [
+    {
+      "author": "user",
+      "content": {
+        "parts": [
+          {
+            "text": "Announce that the project has started."
+          }
+        ],
+        "role": "user"
+      }
+    },
+    {
+      "actions": {
+        "stateDelta": {
+          "announcement_request": "Announce that the project has started."
+        }
+      },
+      "author": "root_agent",
+      "nodeInfo": {
+        "path": "root_agent@1/process_input@1"
+      }
+    },
+    {
+      "actions": {
+        "stateDelta": {
+          "current_draft": "それでは始めさせていただきます"
+        }
+      },
+      "author": "write_draft",
+      "content": {
+        "parts": [
+          {
+            "text": "それでは始めさせていただきます"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "nodeInfo": {
+        "messageAsOutput": true,
+        "outputFor": [
+          "root_agent@1/write_draft@1"
+        ],
+        "path": "root_agent@1/write_draft@1"
+      }
+    },
+    {
+      "actions": {
+        "stateDelta": {
+          "review": {
+            "feedback": "The announcement is concise and professional.",
+            "grade": "approved"
+          }
+        }
+      },
+      "author": "review_draft",
+      "content": {
+        "parts": [
+          {
+            "text": "{\"grade\": \"approved\", \"feedback\": \"The announcement is concise and professional.\"}"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "nodeInfo": {
+        "messageAsOutput": true,
+        "outputFor": [
+          "root_agent@1/review_draft@1"
+        ],
+        "path": "root_agent@1/review_draft@1"
+      }
+    },
+    {
+      "actions": {
+        "route": "approved"
+      },
+      "author": "root_agent",
+      "nodeInfo": {
+        "path": "root_agent@1/route_review@1"
+      }
+    }
+  ]
+}

@@ -1,0 +1,345 @@
+{
+  "events": [
+    {
+      "author": "user",
+      "content": {
+        "parts": [
+          {
+            "text": "Top 4 use cases for AI agents"
+          }
+        ],
+        "role": "user"
+      },
+      "nodeInfo": {
+        "path": ""
+      }
+    },
+    {
+      "author": "BloggerWorkflow",
+      "actions": {
+        "stateDelta": {
+          "request": "Top 4 use cases for AI agents",
+          "outline_review_attempts": 0,
+          "article_review_attempts": 0
+        }
+      },
+      "nodeInfo": {
+        "path": "BloggerWorkflow@1/process_input@1"
+      }
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "# AI Agents\n\n- Introduction\n- Conclusion"
+          }
+        ],
+        "role": "model"
+      },
+      "author": "BlogPlanner",
+      "actions": {
+        "stateDelta": {
+          "blog_outline": "# AI Agents\n\n- Introduction\n- Conclusion"
+        }
+      },
+      "nodeInfo": {
+        "path": "BloggerWorkflow@1/BlogPlanner@1",
+        "outputFor": [
+          "BloggerWorkflow@1/BlogPlanner@1"
+        ],
+        "messageAsOutput": true
+      }
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "{\"grade\":\"retry\",\"feedback\":\"Add four to six main sections.\"}"
+          }
+        ],
+        "role": "model"
+      },
+      "author": "OutlineValidationChecker",
+      "actions": {
+        "stateDelta": {
+          "outline_validation_result": {
+            "grade": "retry",
+            "feedback": "Add four to six main sections."
+          }
+        }
+      },
+      "nodeInfo": {
+        "path": "BloggerWorkflow@1/OutlineValidationChecker@1",
+        "outputFor": [
+          "BloggerWorkflow@1/OutlineValidationChecker@1"
+        ],
+        "messageAsOutput": true
+      }
+    },
+    {
+      "author": "BloggerWorkflow",
+      "actions": {
+        "stateDelta": {
+          "outline_review_attempts": 1
+        },
+        "route": "retry"
+      },
+      "nodeInfo": {
+        "path": "BloggerWorkflow@1/route_outline@1"
+      }
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "# AI Agent Use Cases\n\nShort intro.\n\n## Support\n- Triage\n- Resolution\n\n## Development\n- Review\n- Testing\n\n## Operations\n- Monitoring\n- Response\n\n## Research\n- Search\n- Synthesis\n\n## Conclusion\nChoose bounded, measurable tasks."
+          }
+        ],
+        "role": "model"
+      },
+      "author": "BlogPlanner",
+      "actions": {
+        "stateDelta": {
+          "blog_outline": "# AI Agent Use Cases\n\nShort intro.\n\n## Support\n- Triage\n- Resolution\n\n## Development\n- Review\n- Testing\n\n## Operations\n- Monitoring\n- Response\n\n## Research\n- Search\n- Synthesis\n\n## Conclusion\nChoose bounded, measurable tasks."
+        }
+      },
+      "nodeInfo": {
+        "path": "BloggerWorkflow@1/BlogPlanner@2",
+        "outputFor": [
+          "BloggerWorkflow@1/BlogPlanner@2"
+        ],
+        "messageAsOutput": true
+      }
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "{\"grade\":\"ok\",\"feedback\":\"The outline has all required parts.\"}"
+          }
+        ],
+        "role": "model"
+      },
+      "author": "OutlineValidationChecker",
+      "actions": {
+        "stateDelta": {
+          "outline_validation_result": {
+            "grade": "ok",
+            "feedback": "The outline has all required parts."
+          }
+        }
+      },
+      "nodeInfo": {
+        "path": "BloggerWorkflow@1/OutlineValidationChecker@2",
+        "outputFor": [
+          "BloggerWorkflow@1/OutlineValidationChecker@2"
+        ],
+        "messageAsOutput": true
+      }
+    },
+    {
+      "author": "BloggerWorkflow",
+      "actions": {
+        "stateDelta": {
+          "outline_review_attempts": 2
+        },
+        "route": "ok"
+      },
+      "nodeInfo": {
+        "path": "BloggerWorkflow@1/route_outline@2"
+      }
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "# AI Agent Use Cases\n\nAI agents can automate multi-step work.\n\n## Support\nAgents triage requests."
+          }
+        ],
+        "role": "model"
+      },
+      "author": "BlogWriter",
+      "actions": {
+        "stateDelta": {
+          "blog_post": "# AI Agent Use Cases\n\nAI agents can automate multi-step work.\n\n## Support\nAgents triage requests."
+        }
+      },
+      "nodeInfo": {
+        "path": "BloggerWorkflow@1/BlogWriter@1",
+        "outputFor": [
+          "BloggerWorkflow@1/BlogWriter@1"
+        ],
+        "messageAsOutput": true
+      }
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "{\"grade\":\"retry\",\"feedback\":\"Follow every outline section and add a conclusion.\"}"
+          }
+        ],
+        "role": "model"
+      },
+      "author": "BlogPostValidationChecker",
+      "actions": {
+        "stateDelta": {
+          "blog_validation_result": {
+            "grade": "retry",
+            "feedback": "Follow every outline section and add a conclusion."
+          }
+        }
+      },
+      "nodeInfo": {
+        "path": "BloggerWorkflow@1/BlogPostValidationChecker@1",
+        "outputFor": [
+          "BloggerWorkflow@1/BlogPostValidationChecker@1"
+        ],
+        "messageAsOutput": true
+      }
+    },
+    {
+      "author": "BloggerWorkflow",
+      "actions": {
+        "stateDelta": {
+          "article_review_attempts": 1
+        },
+        "route": "retry"
+      },
+      "nodeInfo": {
+        "path": "BloggerWorkflow@1/route_blog@1"
+      }
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "# AI Agent Use Cases\n\nAI agents can automate bounded multi-step work.\n\n## Support\nAgents triage and resolve requests.\n\n## Development\nAgents review changes and run tests.\n\n## Operations\nAgents monitor systems and coordinate responses.\n\n## Research\nAgents search sources and synthesize findings.\n\n## Conclusion\nStart with measurable tasks and explicit guardrails."
+          }
+        ],
+        "role": "model"
+      },
+      "author": "BlogWriter",
+      "actions": {
+        "stateDelta": {
+          "blog_post": "# AI Agent Use Cases\n\nAI agents can automate bounded multi-step work.\n\n## Support\nAgents triage and resolve requests.\n\n## Development\nAgents review changes and run tests.\n\n## Operations\nAgents monitor systems and coordinate responses.\n\n## Research\nAgents search sources and synthesize findings.\n\n## Conclusion\nStart with measurable tasks and explicit guardrails."
+        }
+      },
+      "nodeInfo": {
+        "path": "BloggerWorkflow@1/BlogWriter@2",
+        "outputFor": [
+          "BloggerWorkflow@1/BlogWriter@2"
+        ],
+        "messageAsOutput": true
+      }
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "{\"grade\":\"ok\",\"feedback\":\"The post matches the outline.\"}"
+          }
+        ],
+        "role": "model"
+      },
+      "author": "BlogPostValidationChecker",
+      "actions": {
+        "stateDelta": {
+          "blog_validation_result": {
+            "grade": "ok",
+            "feedback": "The post matches the outline."
+          }
+        }
+      },
+      "nodeInfo": {
+        "path": "BloggerWorkflow@1/BlogPostValidationChecker@2",
+        "outputFor": [
+          "BloggerWorkflow@1/BlogPostValidationChecker@2"
+        ],
+        "messageAsOutput": true
+      }
+    },
+    {
+      "author": "BloggerWorkflow",
+      "actions": {
+        "stateDelta": {
+          "article_review_attempts": 2
+        },
+        "route": "ok"
+      },
+      "nodeInfo": {
+        "path": "BloggerWorkflow@1/route_blog@2"
+      }
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "{\"alternate_titles\":[\"Practical AI Agents\",\"Four Uses for AI Agents\",\"Where AI Agents Help\"],\"social_hooks\":[\"Four bounded jobs for AI agents.\",\"Put agents to work with guardrails.\"]}"
+          }
+        ],
+        "role": "model"
+      },
+      "author": "Blogger",
+      "actions": {
+        "stateDelta": {
+          "promotion_suggestions": {
+            "alternate_titles": [
+              "Practical AI Agents",
+              "Four Uses for AI Agents",
+              "Where AI Agents Help"
+            ],
+            "social_hooks": [
+              "Four bounded jobs for AI agents.",
+              "Put agents to work with guardrails."
+            ]
+          }
+        }
+      },
+      "nodeInfo": {
+        "path": "BloggerWorkflow@1/Blogger@1",
+        "outputFor": [
+          "BloggerWorkflow@1/Blogger@1"
+        ],
+        "messageAsOutput": true
+      }
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "# AI Agent Use Cases\n\nAI agents can automate bounded multi-step work.\n\n## Support\nAgents triage and resolve requests.\n\n## Development\nAgents review changes and run tests.\n\n## Operations\nAgents monitor systems and coordinate responses.\n\n## Research\nAgents search sources and synthesize findings.\n\n## Conclusion\nStart with measurable tasks and explicit guardrails.\n\n## Alternate titles\n\n- Practical AI Agents\n- Four Uses for AI Agents\n- Where AI Agents Help\n\n## Social hooks\n\n- Four bounded jobs for AI agents.\n- Put agents to work with guardrails."
+          }
+        ],
+        "role": "user"
+      },
+      "author": "BloggerWorkflow",
+      "nodeInfo": {
+        "path": "BloggerWorkflow@1/publish_blog@1"
+      }
+    },
+    {
+      "author": "BloggerWorkflow",
+      "output": {
+        "article": "# AI Agent Use Cases\n\nAI agents can automate bounded multi-step work.\n\n## Support\nAgents triage and resolve requests.\n\n## Development\nAgents review changes and run tests.\n\n## Operations\nAgents monitor systems and coordinate responses.\n\n## Research\nAgents search sources and synthesize findings.\n\n## Conclusion\nStart with measurable tasks and explicit guardrails.",
+        "alternate_titles": [
+          "Practical AI Agents",
+          "Four Uses for AI Agents",
+          "Where AI Agents Help"
+        ],
+        "social_hooks": [
+          "Four bounded jobs for AI agents.",
+          "Put agents to work with guardrails."
+        ]
+      },
+      "nodeInfo": {
+        "path": "BloggerWorkflow@1/publish_blog@1",
+        "outputFor": [
+          "BloggerWorkflow@1/publish_blog@1",
+          "BloggerWorkflow@1"
+        ]
+      }
+    }
+  ]
+}
+

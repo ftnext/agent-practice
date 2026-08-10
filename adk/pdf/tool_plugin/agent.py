@@ -1,3 +1,5 @@
+from urllib.parse import urlparse
+
 from google.adk import Agent
 from google.adk.apps import App
 from google.adk.plugins.multimodal_tool_results_plugin import (
@@ -13,7 +15,15 @@ def get_gcs_file_content(uri: str):
     Args:
         uri: The URI of the file in Google Cloud Storage.
     """
-    return [types.Part.from_uri(file_uri=uri)]
+    parsed = urlparse(uri)
+    if parsed.scheme != "gs":
+        return f"[Error] Only gs:// URIs are supported: {uri}"
+    if not parsed.path or parsed.path == "/":
+        return f"[Error] The GCS object path is missing: {uri}"
+    if not uri.lower().endswith(".pdf"):
+        return f"[Error] Only PDF files are supported: {uri}"
+
+    return [types.Part.from_uri(file_uri=uri, mime_type="application/pdf")]
 
 
 root_agent = Agent(

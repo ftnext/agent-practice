@@ -35,6 +35,17 @@ def emit_number(node_input: int) -> Event:
     return Event(message=str(node_input), output=node_input)
 
 
+fizzbuzz_workflow = Workflow(
+    name="fizzbuzz_logic",
+    edges=[
+        ("START", is_multiple_of_15),
+        (is_multiple_of_15, {True: emit_fizz_buzz, False: is_multiple_of_3}),
+        (is_multiple_of_3, {True: emit_fizz, False: is_multiple_of_5}),
+        (is_multiple_of_5, {True: emit_buzz, False: emit_number}),
+    ],
+)
+
+
 async def next_number(node_input: int) -> Event:
     if node_input < 40:
         await asyncio.sleep(1)
@@ -49,14 +60,7 @@ def finish(node_input: int) -> int:
 root_agent = Workflow(
     name="FizzBuzz",
     edges=[
-        ("START", start_number, is_multiple_of_15),
-        (is_multiple_of_15, {True: emit_fizz_buzz, False: is_multiple_of_3}),
-        (is_multiple_of_3, {True: emit_fizz, False: is_multiple_of_5}),
-        (is_multiple_of_5, {True: emit_buzz, False: emit_number}),
-        (emit_fizz_buzz, next_number),
-        (emit_fizz, next_number),
-        (emit_buzz, next_number),
-        (emit_number, next_number),
-        (next_number, {"continue": is_multiple_of_15, "done": finish}),
+        ("START", start_number, fizzbuzz_workflow, next_number),
+        (next_number, {"continue": fizzbuzz_workflow, "done": finish}),
     ],
 )

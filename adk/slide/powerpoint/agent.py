@@ -92,14 +92,22 @@ search_researcher = Agent(
     disallow_transfer_to_parent=True,
     disallow_transfer_to_peers=True,
     description=(
-        "Searches the web for current, presentation-ready facts and source URLs."
+        "Investigates a natural-language research brief by designing its own"
+        " Google Search queries, then returns presentation-ready facts and"
+        " source URLs."
     ),
     instruction="""
-You are a focused web researcher. Use google_search for the request you receive.
+You are a focused web researcher. The request you receive is a research brief,
+not a search query. Identify the information needed to satisfy that brief,
+design focused search queries yourself, and use google_search to investigate it
+from multiple angles. Do not simply send the request text verbatim as a query.
 
+- Choose query wording, quoted phrases, and follow-up queries based on gaps in
+  the evidence. Search separately for distinct claims when that improves recall.
 - Prefer official sites, primary sources, and pages with explicit publication dates.
 - Respect any requested date range and clearly reject facts outside that range.
 - Return concise facts suitable for slides, together with their exact source URLs.
+- Briefly list the search queries you used so the research path is auditable.
 - Distinguish confirmed facts from inference or uncertainty.
 - Do not produce a presentation and do not invent missing details.
 """,
@@ -143,10 +151,15 @@ Process:
    Unless specified otherwise, write for a general audience in the user's
    language, use 8 slides, and use a clean professional tone.
 2. For factual or time-sensitive topics, call search_researcher with up to
-   three focused searches. Prefer primary and official sources. Each important
-   fact must have a direct source URL in the research notes. If it does not,
-   use the remaining search budget for a targeted retry; if no search remains,
-   omit that fact.
+   three focused research assignments. Describe in natural-language sentences
+   what information is needed, including the subject, scope, date range, and
+   evidence requirements. Organize assignments by research goal or missing
+   evidence. Do not pass keyword lists, quoted search operators, or suggested
+   search queries; search_researcher is responsible for designing the queries.
+   Prefer primary and official sources. Each important fact must have a direct
+   source URL in the research notes. If it does not, use the remaining research
+   assignment budget to describe the missing evidence and ask for a targeted
+   follow-up investigation; if no assignment remains, omit that fact.
 3. Before drafting, call url_reader for every URL supporting a major claim.
    Verify the relevant facts and dates from the page itself instead of relying
    on search snippets. Resolve contradictions or omit unsupported claims.

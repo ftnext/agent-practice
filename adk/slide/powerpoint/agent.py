@@ -87,6 +87,8 @@ search_researcher = Agent(
     model="gemini-3.7-flash",
     name="search_researcher",
     mode="single_turn",
+    disallow_transfer_to_parent=True,
+    disallow_transfer_to_peers=True,
     description=(
         "Searches the web for current, presentation-ready facts and source URLs."
     ),
@@ -106,6 +108,8 @@ url_reader = Agent(
     model="gemini-3.7-flash",
     name="url_reader",
     mode="single_turn",
+    disallow_transfer_to_parent=True,
+    disallow_transfer_to_peers=True,
     description=(
         "Reads candidate URLs and extracts facts, dates, and citations for slides."
     ),

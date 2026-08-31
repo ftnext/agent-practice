@@ -6,10 +6,12 @@ import unicodedata
 from uuid import uuid4
 
 from google.adk import Agent, Context
+from google.adk.apps import App
 from google.adk.tools import google_search, url_context
 from google.genai import types
 
 from ._pptx_renderer import DeckSpec, render_presentation
+from ._retry_blank_stop_plugin import RetryBlankStopPlugin
 
 _PPTX_MIME_TYPE = (
     "application/vnd.openxmlformats-officedocument.presentationml.presentation"
@@ -167,4 +169,15 @@ the narrative. The title slide title should match DeckSpec.title.
 """,
     tools=[create_powerpoint],
     sub_agents=[search_researcher, url_reader],
+)
+
+app = App(
+    name="powerpoint",
+    root_agent=root_agent,
+    plugins=[
+        RetryBlankStopPlugin(
+            agent_name=root_agent.name,
+            max_retries=2,
+        )
+    ],
 )

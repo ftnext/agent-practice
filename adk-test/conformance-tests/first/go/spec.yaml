@@ -1,0 +1,4 @@
+description: "はじめて conformance test"
+agent: "first"
+user_messages:
+  - text: "こんにちは"

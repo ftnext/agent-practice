@@ -1,0 +1,65 @@
+id: a729d18d-16ba-418b-a1e6-f772d4748767
+app_name: first
+user_id: adk_conformance_test_user
+state: {}
+events:
+  - content:
+      parts:
+        - text: こんにちは
+      role: user
+    invocation_id: e-7cbc644e-9d6f-4bb1-900f-9e771226fc51
+    author: user
+    actions:
+      state_delta: {}
+    id: ca681700-d365-4cca-b952-f1cf7eb0f367
+    timestamp: 1790341116.952821
+  - model_version: gemini-3.5-flash
+    content:
+      parts:
+        - text: Pineapple
+          thought_signature: EuEICt4IAWkUfRMdMTzFrytIOrbp0txfbsi0dRVqNzftN6xn6J6XhWd7laYzxbqVV-9bZh0yoy6GzhBtBwF0D06peCXIrlCMDEHNvV5U9cvDKJIOh--KJ1CLp7TOC6ZRxkwlIpNpe5-UtN1FQCD58cOfvQyAzngGOa7o4M_4nGxa6WGKAT8aod0VK-KJPqc8_LXxuoGBznI8nPW-0jPubtsMECVbNCoigVori6-Dg0UqGhYicbDQrfGyjP8_1vS80n17xDaDjroS9hDiFF2PS5HSz5adglQ12nKJ4lJGGlr1zC4B0F-7l08REmrygZzTll4k-vTs6l0Pd1uSJqv5rUSBHDme3c7WcVRq497UN0x1E0zU1f0-laFxXaEhn8NCALmYt2mW-VluY8ujh0hKQ0pTzwVRLkE4O_bw9C2TsG7aIJ7Q0dx_Wm5cSLlAWOGVAWBkJWNZpVB49VSQYmd9bmpLgmmQWeOMHgovSZuAtd7K4zvmg7MtqLfNVUsB7lIIg05WJaoPbr_MNVt8r0Q3BBjRuxpBtchtOx2MlAFqAiRHObZRrOPeVmhAZZl_hwyWjZX__hZZd0e0JHhTMzxuTEh_viDjioLv-eS9k5JxRCbwDJ0TvOXsH_rEZmJRSsF3_hR_YAzvnWbH89ffd0upsMPvHkw7Oh3TPNKfOwt5jSnldju7nnyHiopZwcHZmYfsQ1tmhSkb6yzmWhoRFbBbG8Xoc_cNiY2nYgqwRk3MsNTXZcqisFKQ-RAi6vWf4LGdorg5kwOwhBVmotJZET8MzTvCaJeR7xQNlt-Iy9QS7_VrV0bFq4ZZXNE2L-zgqWc1Lc8GBkx0dTzoGREzxRXcwVzrXvDHq2oQiRKXb986WnucXWtjS3zJ5Mqi5KeFD6lVLqrA-Jpo3Em2aqbc6qBqbCDhr4hAqT2sYVVS_YqB5jx0DesLUVsxhQoT3eZSBjhj-CIuvTG_mNYD3gs4OOHbUELov0DTJb49MtYoGUGyUHr4rPWE6ZCJ2O_l4RLdkw72TaKiky5phg3wnCn-zJCUoTx8HomZu2ot66XCbLwHPgZpUr1i0nhqL7talaorIFNCbssNlpJTC2C6RGJc1oFp2p-3OBQUesjmsCs9xIpv87Yy7983hNBPEFGo5-5dzdivf5LLi9DUqtEYiD8Wy6SsA2R3qts8A0ngW6DCfBLQVa4yY2XZbF6VxFzgso8eKaDpgiL-KfyEXvzPkjdST9GfaCf5GFY9TTbTJke4XT3-DEugBk5W85cSxZ3hUwTzhsaVen9JXpmqUDFvLFin8wMvAzSHhZsV5ONyMP_JY4fttQLAYusUbH18KaCGNhUZfDfqBaZpCtBeZQUC_LcOsFEW2vvvO_0pfsw87GUrE0E4_JqX9c-kEMRaHsCX2o-d4HBcHoyK--mKcMHHprMADcMAATcPdvcGVTuQrDU_El3Xp3YidhczFfXFcvfKDrICUlw34OCsXS0AYCqicdjUAS2DBhV4jkk=
+      role: model
+    finish_reason: STOP
+    usage_metadata:
+      candidates_token_count: 2
+      prompt_token_count: 21
+      prompt_tokens_details:
+        - modality: TEXT
+          token_count: 21
+      thoughts_token_count: 269
+      total_token_count: 292
+    invocation_id: e-7cbc644e-9d6f-4bb1-900f-9e771226fc51
+    author: generate_fruit_agent
+    node_info:
+      path: root_agent@1/generate_fruit_agent@1
+      output_for:
+        - root_agent@1/generate_fruit_agent@1
+      message_as_output: true
+    id: 12e63e2b-993d-4896-b83b-f36167550f04
+    timestamp: 1790341122.523168
+  - model_version: gemini-3.5-flash
+    content:
+      parts:
+        - text: "One of the standout health benefits of pineapple is that it is the only known food source of **bromelain**, a powerful group of digestive enzymes. \n\nBromelain helps break down dietary proteins, which aids in smoother digestion and can reduce bloating. Additionally, it has strong anti-inflammatory and pain-relieving properties, which have been shown to help reduce swelling, ease joint pain (especially from osteoarthritis), and speed up muscle recovery after intense exercise or surgery."
+          thought_signature: Ev8MCvwMAWkUfRMNrm2LbeLHZNj3-i9eZeJhgcOLng9ccf_aDP0b900HXDHo_frcd_1btqCcsNCVblmQX-Yzk97eYVkdRJqSepNb9nQpFA4BBjpbtN3B56MIi58COki-4yhY4yYMpdbMHUm8_ZClOqfWhmNQPWbtd_iLR1WtDQ54II-ldnlA6IZE5VAHYFekFYJe4Sm-U8ZcMhJGyAxnVIHfZQjx7y15S9H7YA9ZS0gr2HDYjp6U1h-7floRJ_skn4aMkY_wVRQxoyBWN4frsrxlelZ8vHjvsJTGJVEouqnD8Brio_mGrP-an_YWjcIJkAvexVxCqZn2D4kFDJKU6-C998B4zb7Mm0U4fy6ARzw2JpwMtpC5dG9SyneFfD8UHOIuOzI7d5qhPipnTysq1Aw8jAwdLgN4i2w8w4iHYIB6NIdO5R6JOUa1RGdP5fyYtgVkF8qMGHkNMPKMYuAoNH69stUhi6-pGa-s59Dd9w-AIMEmj8qORbjx9XgHqJ8lIyLG-jqqw518p0GKpL23_JCgBlUgSQby7FJ0SKc-jfoa7apMwjIUhs9UrqJeZ4y7aW4uUZewPrjwHlE8HoPFeGr_10QqGT4OW92cUw7MakldDIopECCU5IlH2puQ3wv04I8fd1nrA_wb5HivkLVvNxnFJw3sKP7UrzCLnjcTatPGCbAGgXwd88hsXe2QQFv6FfLmFDVBtXHDzBNivFA2cnhJtGuAzS_AQvdUs7HG6ftkEr2s9BWJqcvth2pvNBQvuVNg47Eq0ijw8WO_EXqS5_uLGpts-Lk8xR_tfZZhvfixmTkNljvKGy4ldKAYqAOFU0aTc0qqgd7TzLn74eItl4zPL4Tc7WtWssme4g__cG8ZUs7b_la8gstD4ohvL7ABtGvG7Uy3R-8d6lTUOYV7uzxrHyfznMPQQ2UHke5q7SE3BNUa7aMPKA8WBBOr5xkvRAYC4gku56kkAHSHpTzFYOkWvimGkWoxQp0DqohH3lpPYSsgMZ0OQr1KKAF-QFXgqGoEn6iYat3mqOIX200CxyI2XWM0rH3FDLGaqx9wxt738GBoRJbNaCkE2dP9u2mSHtnCNX35SkCNJhP6I6o6gV5CliThLQisfE1wyMV62DFOLN0kYVZpgNPRX_uMTsS2pcAyzTd18FCRP_U76CmjjBbGjeAAYmQ1psAuRICYejiUyNuLHDTctF-kqB7QW4SGbX8FTzgK02R7ZMFfHYFTE1iHAloGK1M78vJfSBuI32UjV_uD4t8mGfWUbA_1cmz1emfFrcdTW7Y8Zv-w7w4bhRdjFl_twFJjEe-KZOn92iZgzQRv1-QaU49XjOoTYFm0zdGcaw2POLAm6qLhKxFhCM5y-tyLRhSUYPYvXLvZyJM0kB9GlvQ-Wp6ptJ8YwjJX4DDel41SbktOPzNhn14QpWDFbPZNO3GGk11irJVgJnOuoT_g4Gsma68brnMZiKIHhEFirBY7N3Fw0iFsWbrwoSU5J-WBAYiOyfdrczI-4iJoSBuD7MX_lCPfL6Q-MELzUKTiTTkd1Z-TnlvNxzXzCgBj-22aPpVQLe_iReDR0p2717SvMG38HF1zrD9sJwbV-DLtBm5kr8mhW0GU47ipF04D6EZfljpyb75Ph4mWAPjOdKgShJ1cqpiZk8pcKlHdJf5RAK5uiDGwwfxXitce1dY-swBRXit7A5aiovCL0_G_8w-xBVxtZ0AWemOUaZV-fYstVsAnKJpG8bAoc_fYYxy5VUNFCGaKVBVjHWkb5HPSffsjkexdkNMgVSsTvnxFXxvhQKYOqueUq42nBgIECVGfxKD1lDrbndlHK1KGKjjLoQ_c8BycgUe1qNt5nC6fWGdAM69IA-kfCV1_GojMNoEK-WD0PplBbBnNRkDrHU2xI0b13rtIbIZ3chRybWYQBI5kPzxUYWUmRTpnFcauMb_wEy0BSgGHsnVXQOZDI5LNaTMKav87Hf1oCwp7Vwsi_JgBMJ46T1S-D8uCEcpUofJapv51N4fNGKaFFXzD9QeUgM4Qgb3aNltsg_-TTL3AlABoWG9foV9mLYM-ANKDuTLuoG_tbGU0R5ZYh3EZ47NbNHvdaOLiXyu98OO-dOS42Eb8WO5EZZx4X7fQwdBn21HjQv6BASBZEhxEk-gcIrJSugsnmmIcRLl_HY1746Ruaq2yi8lvE8amCm2z3SD0PWEp8yD2IV-I5Cmjoh_MdmA3cQ==
+      role: model
+    finish_reason: STOP
+    usage_metadata:
+      candidates_token_count: 94
+      prompt_token_count: 14
+      prompt_tokens_details:
+        - modality: TEXT
+          token_count: 14
+      thoughts_token_count: 356
+      total_token_count: 464
+    invocation_id: e-7cbc644e-9d6f-4bb1-900f-9e771226fc51
+    author: generate_benefit_agent
+    node_info:
+      path: root_agent@1/generate_benefit_agent@1
+      output_for:
+        - root_agent@1/generate_benefit_agent@1
+        - root_agent@1
+      message_as_output: true
+    id: bee90eac-82f8-4e76-914d-de1bfa3218b8
+    timestamp: 1790341125.7310479
+last_update_time: 1790341125.7310479

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "city": {"type": "string"},
+    "unit": {"type": "string", "enum": ["celsius", "fahrenheit"]}
+  },
+  "required": ["city", "unit"],
+  "additionalProperties": false
+}

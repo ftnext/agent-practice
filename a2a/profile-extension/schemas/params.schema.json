@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Typed Contract v1 AgentExtension params",
+  "type": "object",
+  "properties": {
+    "schemaLanguage": {"const": "https://json-schema.org/draft/2020-12/schema"},
+    "contracts": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {"minLength": 1},
+      "additionalProperties": {"$ref": "#/$defs/contract"}
+    }
+  },
+  "required": ["schemaLanguage", "contracts"],
+  "additionalProperties": false,
+  "$defs": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "$schema": {"const": "https://json-schema.org/draft/2020-12/schema"}
+      },
+      "required": ["$schema"]
+    },
+    "contract": {
+      "type": "object",
+      "properties": {
+        "contractVersion": {"type": "string", "minLength": 1},
+        "inputSchema": {"$ref": "#/$defs/schema"},
+        "outputSchema": {"$ref": "#/$defs/schema"}
+      },
+      "required": ["contractVersion", "inputSchema", "outputSchema"],
+      "additionalProperties": false
+    }
+  }
+}

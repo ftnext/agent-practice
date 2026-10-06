@@ -1,0 +1,44 @@
+[project]
+name = "a2a-profile-extension-poc"
+version = "0.1.0"
+description = "A2A Profile Extension for schema-validated typed skill contracts"
+requires-python = ">=3.10"
+dependencies = [
+    "a2a-sdk[http-server] @ git+https://github.com/a2aproject/a2a-python.git@a0160025d6d211b0be1762cb829e7a47c147191a",
+    "jsonschema==4.26.0",
+    "uvicorn>=0.35.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.26.0",
+    "ruff>=0.12.8",
+    "ty>=0.0.34",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["."]
+asyncio_mode = "strict"
+
+[tool.ruff]
+line-length = 80
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2
+lines-between-types = 1
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.ty.environment]
+python-version = "3.10"
+
+[tool.uv]
+# Stable cutoff avoids user-level relative resolver settings changing the lock.
+exclude-newer = "2026-10-07T00:00:00Z"

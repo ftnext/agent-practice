@@ -1,0 +1,91 @@
+{
+  "name": "Typed Weather",
+  "description": "Fixed weather data with validated JSON contracts.",
+  "supportedInterfaces": [
+    {
+      "url": "http://127.0.0.1:8000/rpc",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "1.0"
+    }
+  ],
+  "version": "1.0.0",
+  "capabilities": {
+    "streaming": false,
+    "extensions": [
+      {
+        "uri": "https://example.com/a2a/extensions/typed-contract/v1",
+        "description": "Exactly one schema-validated data part.",
+        "required": true,
+        "params": {
+          "schemaLanguage": "https://json-schema.org/draft/2020-12/schema",
+          "contracts": {
+            "weather-skill": {
+              "outputSchema": {
+                "additionalProperties": false,
+                "required": [
+                  "temperature",
+                  "condition"
+                ],
+                "type": "object",
+                "properties": {
+                  "temperature": {
+                    "type": "number"
+                  },
+                  "condition": {
+                    "type": "string"
+                  }
+                },
+                "$schema": "https://json-schema.org/draft/2020-12/schema"
+              },
+              "inputSchema": {
+                "additionalProperties": false,
+                "required": [
+                  "city",
+                  "unit"
+                ],
+                "type": "object",
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  },
+                  "unit": {
+                    "enum": [
+                      "celsius",
+                      "fahrenheit"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "$schema": "https://json-schema.org/draft/2020-12/schema"
+              },
+              "contractVersion": "1.0.0"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "defaultInputModes": [
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "weather-skill",
+      "name": "Weather",
+      "description": "Returns fixture weather, not live weather.",
+      "tags": [
+        "weather",
+        "typed-contract"
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    }
+  ]
+}

@@ -86,7 +86,7 @@ async def create_powerpoint(spec: DeckSpec, ctx: Context) -> dict[str, object]:
 
 
 search_researcher = Agent(
-    model="gemini-3.7-flash",
+    model="gemini-3.8-flash",
     name="search_researcher",
     mode="single_turn",
     disallow_transfer_to_parent=True,
@@ -115,7 +115,7 @@ from multiple angles. Do not simply send the request text verbatim as a query.
 )
 
 url_reader = Agent(
-    model="gemini-3.7-flash",
+    model="gemini-3.8-flash",
     name="url_reader",
     mode="single_turn",
     disallow_transfer_to_parent=True,
@@ -146,7 +146,7 @@ verify only those requested claims.
 )
 
 root_agent = Agent(
-    model="gemini-3.7-flash",
+    model="gemini-3.8-flash",
     name="powerpoint_agent",
     description=(
         "Researches a topic with Google Search and URL Context, then creates a"
